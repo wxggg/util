@@ -49,6 +49,27 @@ def plotLabelsTwo(log1, log2, labels, legend1, legend2, x=None, xw=None):
     plt.show()
 
 
+def plotLabelsN(logs, label, legends, x=None, xw=None):
+    if logs == None or len(logs) == 0:
+        return
+
+    if x == None:
+        x = list(range(len(logs[0])))
+
+    if xw == None:
+        xw = x
+
+    for i in range(len(logs)):
+        log, legend = logs[i], legends[i]
+        plt.plot(xw, log[label][x], label=legend +
+                 label, marker=randomMarker())
+
+    plt.xticks(xw)
+    plt.title(legends)
+    plt.legend()
+    plt.show()
+
+
 def plotLabelsSub(log, labels1, labels2, x=None, xw=None):
     if x == None:
         x = list(range(len(log)))
