@@ -19,23 +19,24 @@ if __name__ == '__main__':
 
     # plotBars(log, ['cpuTime', 'serverLatency'], list(range(20)))
 
-    # plotDist(log, 'serverLatency')
+    plotDist(log, 'serverLatency')
 
-    queLatency = {}
-    for i in range(100):
-        queLatency[i] = []
+    # queLatency = {}
+    # for i in range(100):
+    #     queLatency[i] = []
 
-    for i in range(len(log)):
-        queueSize = log['queueSize'][i]
-        if queueSize < 100:
-            queLatency[queueSize].append(log['serverLatency'][i])
+    # for i in range(len(log)):
+    #     queueSize = log['queueSize'][i]
+    #     if queueSize < 100:
+    #         queLatency[queueSize].append(log['serverLatency'][i])
 
-    que= {}
-    que['queueLatency'] = []
-    for i in range(100):
-        if 0 == len(queLatency[i]):
-            break
-        que['queueLatency'].append(np.mean(queLatency[i]))
-    que = pd.DataFrame(que)
+    # que = {}
+    # que['queueLatency'] = []
+    # quex = list(range(0, 100, 5))
+    # for i in quex:
+    #     if 0 == len(queLatency[i]):
+    #         break
+    #     que['queueLatency'].append(np.mean(queLatency[i]))
+    # que = pd.DataFrame(que)
 
-    plotLabels(que, ['queueLatency'])
+    # plotLabels(que, ['queueLatency'], x=quex)
